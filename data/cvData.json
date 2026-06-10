@@ -1,0 +1,61 @@
+{
+  "name": "Gerry Abel Al Ashby",
+  "contact": "081266291189 | abelgerry11@gmail.com | Bukittinggi, Sumatera Barat | LinkedIn: Gerry Abel Al Ashby",
+  "education": [
+    {
+      "degree": "Diploma (D3)",
+      "major": "Technology Informatics",
+      "university": "Universitas Brawijaya",
+      "location": "Malang, Jawa Timur",
+      "gpa": "3.81 / 4.00"
+    }
+  ],
+  "experience": [
+    {
+      "position": "Programmer (Magang)",
+      "company": "Dinas Perpustakaan dan Kearsipan Kota Bukittinggi",
+      "location": "Bukittinggi, Sumatera Barat",
+      "duration": "Agustus 2025 - Juli 2025",
+      "responsibilities": [
+        "Desain dan rancang website Cuti Pegawai",
+        "Desain dan rancang website Arsip",
+        "Desain dan rancang website Perpustakaan Daring Kota Bukittinggi"
+      ]
+    },
+    {
+      "position": "IT Programmer (Magang)",
+      "company": "PT. Era Bangun Jaya",
+      "location": "Sangatta, Kalimantan Timur",
+      "duration": "November 2025 - Mei 2026",
+      "responsibilities": [
+        "Mengembangkan dan mengelola sistem manajemen aset perusahaan menggunakan SELIA dan SMMS",
+        "Menginput, memperbarui, dan memvalidasi data aset, sparepart, serta maintenance unit alat berat",
+        "Melakukan dokumentasi sistem dan pembuatan laporan penggunaan sistem"
+      ]
+    }
+  ],
+  "certificates": [
+    "TOEFL ITP - Universitas Brawijaya (Score: 453)",
+    "Sertifikat Kompetensi Junior Web Developer - Universitas Brawijaya",
+    "Sertifikat IC3 - Universitas Brawijaya"
+  ],
+  "skills": {
+    "softSkills": [
+      "Problem Solving",
+      "Komunikasi",
+      "Berpikir Kritis",
+      "Manajemen Waktu yang baik"
+    ],
+    "hardSkills": [
+      "Programming Languages: PHP, JavaScript",
+      "Web Development: HTML, CSS, Laravel",
+      "Database: MySQL",
+      "UI/UX Fundamentals: wireframing, prototyping"
+    ],
+    "languages": [
+      "Bahasa Indonesia (Natural)",
+      "Bahasa Inggris (Menengah)"
+    ]
+  },
+  "summary": "Mahasiswa lulusan D3 Universitas Brawijaya Program Studi Teknologi Informasi dengan pengalaman dalam desain dan pengembangan website, sistem manajemen aset, serta adaptasi cepat dalam lingkungan kerja. Berbakat untuk bekerja mandiri dan dalam tim, dengan antusiasme meningkatkan keterampilan di industri teknologi."
+}
