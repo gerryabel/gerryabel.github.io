@@ -23,7 +23,7 @@ const EXPERIENCE = [
     period: "Nov 2025 – Mei 2026",
     role: "IT Programmer — Magang (Maganghub)",
     details: [
-      "Mengembangkan dan mengelola sistem manajemen aset perusahaan menggunakan SELIA dan SMMS",
+      "Mengelola sistem manajemen aset perusahaan menggunakan SELIA dan SMMS (Sangatta Management Maintenance System)",
       "Menginput, memperbarui, dan memvalidasi data aset, sparepart, serta maintenance unit alat berat",
       "Membantu perancangan fitur dan alur sistem sesuai kebutuhan operasional perusahaan",
       "Melakukan dokumentasi sistem dan pembuatan laporan penggunaan sistem",
@@ -36,6 +36,7 @@ const EXPERIENCE = [
     role: "Programmer — Magang",
     details: [
       "Desain dan rancang website Cuti Pegawai",
+      "Desain dan rancang website Sistem Administrasi Pertanggungjawaban Keuangan",
       "Desain dan rancang website Arsip",
       "Desain dan rancang website Perpustakaan Daring Kota Bukittinggi",
     ],
@@ -62,13 +63,13 @@ const SOFT_SKILLS = [
 ];
 
 const HARD_SKILLS = [
-  { name: "PHP", level: 85 },
-  { name: "JavaScript", level: 80 },
+  { name: "PHP (Laravel, CI4)", level: 85 },
+  { name: "JavaScript", level: 75 },
   { name: "HTML & CSS", level: 90 },
-  { name: "Laravel", level: 80 },
   { name: "MySQL", level: 85 },
-  { name: "UI/UX Design", level: 75 },
-  { name: "Flutter", level: 65 },
+  { name: "UI/UX Design (Figma)", level: 75 },
+  { name: "Git & GitHub", level: 70 },
+  { name: "Flutter", level: 60 },
   { name: "MongoDB", level: 40 },
 ];
 
@@ -76,6 +77,11 @@ const CERTIFICATES = [
   { name: "TOEFL ITP — Nilai: 453", issuer: "Universitas Brawijaya", date: "18 Nov 2024 – 18 Nov 2026" },
   { name: "Junior Web Developer", issuer: "Universitas Brawijaya (Sertifikat Kompetensi)", date: "25 Jan 2025 – 25 Jan 2028" },
   { name: "IC3 Digital Literacy", issuer: "Universitas Brawijaya", date: "8 Mei 2025" },
+  { name: "Kelulusan Program Maganghub — IT Programmer", issuer: "PT. Mandau Jaya Kontrindo", date: "24 Mei 2026" },
+];
+
+const TOOLS = [
+  "Laragon", "Git", "GitHub", "VS Code", "Figma", "XAMPP",
 ];
 
 const LANGUAGES = [
@@ -384,7 +390,7 @@ function Skills() {
           </div>
         </div>
 
-        {/* Soft Skills + Languages */}
+        {/* Soft Skills + Languages + Tools */}
         <div className="space-y-5 sm:space-y-8">
           <div className="bg-card border border-card-border rounded-2xl p-4 sm:p-8">
             <h3 className="text-sm sm:text-lg font-bold mb-4 sm:mb-6 flex items-center gap-2">
@@ -411,6 +417,19 @@ function Skills() {
                     {l.level}
                   </span>
                 </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="bg-card border border-card-border rounded-2xl p-4 sm:p-8">
+            <h3 className="text-sm sm:text-lg font-bold mb-4 sm:mb-6 flex items-center gap-2">
+              <span className="text-violet-500">🛠</span> Tools & Lingkungan Kerja
+            </h3>
+            <div className="flex flex-wrap gap-1.5 sm:gap-2">
+              {TOOLS.map((t, i) => (
+                <span key={i} className="px-2.5 sm:px-4 py-1 sm:py-2 rounded-full text-xs font-medium bg-violet-500/10 text-violet-600 dark:text-violet-400 border border-violet-500/20">
+                  {t}
+                </span>
               ))}
             </div>
           </div>
