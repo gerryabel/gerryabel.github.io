@@ -2,7 +2,7 @@
 
 Portfolio website pribadi dibangun dengan **Next.js 16** dan di-deploy ke **GitHub Pages**.
 
-🔗 **Live:** [https://gerryabel.github.io](https://gerryabel.github.io)
+**Live:** [https://gerryabel.github.io](https://gerryabel.github.io)
 
 ---
 
@@ -55,7 +55,3 @@ npm run build
 Setiap push ke branch `main`, GitHub Actions otomatis build dan deploy ke GitHub Pages.
 
 ---
-
-## 📄 Lisensi
-
-Proyek ini untuk keperluan pribadi. Silakan gunakan sebagai referensi.
