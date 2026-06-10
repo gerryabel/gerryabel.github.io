@@ -1,4 +1,4 @@
-# 👋 Portfolio Website — Gerry Abel Al Ashby
+# Portfolio Website — Gerry Abel Al Ashby
 
 Portfolio website pribadi dibangun dengan **Next.js 16** dan di-deploy ke **GitHub Pages**.
 
@@ -6,7 +6,7 @@ Portfolio website pribadi dibangun dengan **Next.js 16** dan di-deploy ke **GitH
 
 ---
 
-## 🚀 Tech Stack
+## Tech Stack
 
 - **Framework:** Next.js 16 (App Router)
 - **Styling:** Tailwind CSS
@@ -15,7 +15,7 @@ Portfolio website pribadi dibangun dengan **Next.js 16** dan di-deploy ke **GitH
 
 ---
 
-## 📁 Struktur Proyek
+## Struktur Proyek
 
 ```
 app/
@@ -31,7 +31,7 @@ public/
 
 ---
 
-## 🛠️ Cara Jalankan Lokal
+## Cara Jalankan Lokal
 
 ```bash
 # Install dependencies
@@ -45,7 +45,7 @@ Buka [http://localhost:3000](http://localhost:3000) di browser.
 
 ---
 
-## 📦 Build & Deploy
+## Build & Deploy
 
 ```bash
 # Build static export
