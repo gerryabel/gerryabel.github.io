@@ -22,6 +22,9 @@ const EXPERIENCE = [
     location: "Sangatta, Kalimantan Timur",
     period: "Nov 2025 – Mei 2026",
     role: "IT Programmer — Magang (Maganghub)",
+    image: "/foto-magang-kerja.jpeg",
+    imageAlt: "Foto saat bekerja di PT. Era Bangun Jaya",
+    suratUrl: "/surat-keterangan-era-bangun-jaya.pdf",
     details: [
       "Mengelola sistem manajemen aset perusahaan menggunakan SELIA dan SMMS (Sangatta Management Maintenance System)",
       "Menginput, memperbarui, dan memvalidasi data aset, sparepart, serta maintenance unit alat berat",
@@ -34,6 +37,8 @@ const EXPERIENCE = [
     location: "Bukittinggi, Sumatera Barat",
     period: "Sep 2024 – Mar 2025",
     role: "Programmer — Magang",
+    image: "/foto-magang-kuliah.jpg",
+    imageAlt: "Foto magang di Dinas Perpustakaan dan Kearsipan Kota Bukittinggi",
     details: [
       "Desain dan rancang website Cuti Pegawai",
       "Desain dan rancang website Sistem Administrasi Pertanggungjawaban Keuangan",
@@ -69,15 +74,16 @@ const HARD_SKILLS = [
   { name: "MySQL", level: 85 },
   { name: "UI/UX Design (Figma)", level: 75 },
   { name: "Git & GitHub", level: 70 },
-  { name: "Flutter", level: 60 },
+  { name: "Flutter", level: 40 },
   { name: "MongoDB", level: 40 },
 ];
 
 const CERTIFICATES = [
-  { name: "TOEFL ITP — Nilai: 453", issuer: "Universitas Brawijaya", date: "18 Nov 2024 – 18 Nov 2026" },
-  { name: "Junior Web Developer", issuer: "Universitas Brawijaya (Sertifikat Kompetensi)", date: "25 Jan 2025 – 25 Jan 2028" },
-  { name: "IC3 Digital Literacy", issuer: "Universitas Brawijaya", date: "8 Mei 2025" },
-  { name: "Kelulusan Program Maganghub — IT Programmer", issuer: "PT. Mandau Jaya Kontrindo", date: "24 Mei 2026" },
+  { name: "TOEFL ITP — Nilai: 453", issuer: "Universitas Brawijaya", date: "18 Nov 2024 – 18 Nov 2026", pdf: "/sertifikat-itp-toefl.pdf" },
+  { name: "Junior Web Developer", issuer: "Universitas Brawijaya (Sertifikat Kompetensi BNSP)", date: "25 Jan 2025 – 25 Jan 2028", pdf: "/sertifikat-prestasi.pdf" },
+  { name: "IC3 Digital Literacy", issuer: "Universitas Brawijaya", date: "8 Mei 2025", pdf: "/sertifikat-ic3.pdf" },
+  { name: "Kelulusan Program Maganghub — IT Programmer", issuer: "PT. Mandau Jaya Kontrindo", date: "24 Mei 2026", pdf: "/sertifikat-maganghub.pdf" },
+  { name: "Kelulusan Magang — Programmer", issuer: "Dinas Perpustakaan dan Kearsipan Kota Bukittinggi", date: "11 Mar 2025", pdf: "/sertifikat-kegiatan.pdf" },
 ];
 
 const TOOLS = [
@@ -155,15 +161,19 @@ function IconX() {
   return (<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>);
 }
 
+function IconExternal() {
+  return (<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>);
+}
+
 /* ─────────────────────── COMPONENTS ─────────────────────── */
 
 function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-white/80 dark:bg-black/80 border-b border-card-border">
+    <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-black/80 border-b border-card-border">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
-        <span className="font-bold text-lg gradient-text">GAA</span>
+        <span className="font-bold text-lg text-yellow-500">AbeL</span>
 
         {/* Desktop nav */}
         <ul className="hidden sm:flex gap-6 text-sm font-medium text-muted">
@@ -188,14 +198,14 @@ function Navbar() {
 
       {/* Mobile menu dropdown */}
       {open && (
-        <div className="sm:hidden border-t border-card-border bg-white/95 dark:bg-black/95 backdrop-blur-md animate-fade-in">
+        <div className="sm:hidden border-t border-card-border bg-black/95 backdrop-blur-md animate-fade-in">
           <ul className="flex flex-col px-4 py-2">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="block py-3 px-3 text-sm font-medium text-muted hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                  className="block py-3 px-3 text-sm font-medium text-muted hover:text-primary hover:bg-white/5 transition-colors"
                 >
                   {link.label}
                 </a>
@@ -211,19 +221,20 @@ function Navbar() {
 function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-16 sm:pt-24 sm:pb-20" id="about">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900" />
-      <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl" />
+      {/* Background — gradient + decorative circles */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-zinc-950 to-zinc-900" />
+      <div className="absolute top-10 left-5 w-80 h-80 bg-yellow-500/15 rounded-full blur-3xl" />
+      <div className="absolute bottom-10 right-5 w-[500px] h-[500px] bg-amber-500/12 rounded-full blur-3xl" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-yellow-400/8 rounded-full blur-3xl" />
 
       <div className="relative z-10 text-center px-4 sm:px-6 max-w-3xl mx-auto w-full">
         {/* Avatar */}
-        <div className="mx-auto mb-5 sm:mb-8 w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden shadow-2xl shadow-blue-500/30 animate-fade-in-up border-4 border-white/20">
+        <div className="mx-auto mb-6 sm:mb-10 w-28 h-28 sm:w-40 sm:h-40 rounded-full overflow-hidden avatar-glow animate-fade-in-up border-4 border-yellow-500/30">
           <Image
             src="/foto-profil.jpg"
             alt="Foto Profil Gerry Abel Al Ashby"
-            width={128}
-            height={128}
+            width={160}
+            height={160}
             priority
             className="w-full h-full object-cover object-[50%_30%]"
           />
@@ -233,26 +244,26 @@ function Hero() {
           {PROFILE.name}
         </h1>
 
-        <p className="text-sm sm:text-xl text-blue-200 font-medium mb-3 sm:mb-6 animate-fade-in-up animation-delay-200">
+        <p className="text-sm sm:text-xl text-yellow-400 font-medium mb-3 sm:mb-6 animate-fade-in-up animation-delay-200">
           {PROFILE.role}
         </p>
 
-        <p className="text-xs sm:text-base text-slate-300 leading-relaxed max-w-2xl mx-auto mb-5 sm:mb-8 animate-fade-in-up animation-delay-300">
+        <p className="text-xs sm:text-base text-zinc-400 leading-relaxed max-w-2xl mx-auto mb-5 sm:mb-8 animate-fade-in-up animation-delay-300">
           {PROFILE.summary}
         </p>
 
         {/* Contact pills */}
         <div className="flex flex-col sm:flex-row sm:flex-wrap justify-center gap-2 mb-5 sm:mb-8 animate-fade-in-up animation-delay-400">
-          <a href={`mailto:${PROFILE.email}`} className="inline-flex items-center justify-center gap-2 px-3 py-2 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm backdrop-blur-sm transition-colors">
+          <a href={`mailto:${PROFILE.email}`} className="inline-flex items-center justify-center gap-2 px-3 py-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-white text-xs sm:text-sm transition-colors">
             <IconMail /> {PROFILE.email}
           </a>
-          <span className="inline-flex items-center justify-center gap-2 px-3 py-2 rounded-full bg-white/10 text-white text-xs sm:text-sm backdrop-blur-sm">
+          <span className="inline-flex items-center justify-center gap-2 px-3 py-2 rounded-full bg-white/5 border border-white/10 text-white text-xs sm:text-sm">
             <IconPhone /> {PROFILE.phone}
           </span>
-          <span className="inline-flex items-center justify-center gap-2 px-3 py-2 rounded-full bg-white/10 text-white text-xs sm:text-sm backdrop-blur-sm">
+          <span className="inline-flex items-center justify-center gap-2 px-3 py-2 rounded-full bg-white/5 border border-white/10 text-white text-xs sm:text-sm">
             <IconMapPin /> {PROFILE.location}
           </span>
-          <a href={PROFILE.linkedin} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-3 py-2 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm backdrop-blur-sm transition-colors">
+          <a href={PROFILE.linkedin} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-3 py-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-white text-xs sm:text-sm transition-colors">
             <IconLinkedin /> LinkedIn
           </a>
         </div>
@@ -261,7 +272,7 @@ function Hero() {
         <div className="flex flex-col sm:flex-row justify-center gap-3 animate-fade-in-up animation-delay-500">
           <a
             href="#experience"
-            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 sm:py-3 rounded-full bg-blue-600 hover:bg-blue-500 text-white text-sm sm:text-base font-semibold transition-colors shadow-lg shadow-blue-600/30"
+            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 sm:py-3 rounded-full bg-yellow-500 hover:bg-yellow-400 text-black text-sm sm:text-base font-semibold transition-colors shadow-lg shadow-yellow-500/20"
           >
             Lihat Pengalaman
           </a>
@@ -269,7 +280,7 @@ function Hero() {
             href="/CV_Gerry.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 sm:py-3 rounded-full border border-white/30 hover:bg-white/10 text-white text-sm sm:text-base font-semibold transition-colors backdrop-blur-sm"
+            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 sm:py-3 rounded-full border border-yellow-500/30 hover:bg-yellow-500/10 text-yellow-400 text-sm sm:text-base font-semibold transition-colors"
           >
             <IconDownload /> Download CV
           </a>
@@ -277,7 +288,7 @@ function Hero() {
       </div>
 
       {/* Scroll indicator */}
-      <a href="#experience" className="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 text-white/60 hover:text-white transition-colors animate-bounce z-10">
+      <a href="#experience" className="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 text-yellow-500/50 hover:text-yellow-400 transition-colors animate-bounce z-10">
         <IconChevronDown />
       </a>
     </section>
@@ -287,10 +298,10 @@ function Hero() {
 function SectionTitle({ icon, title, id }: { icon: React.ReactNode; title: string; id: string }) {
   return (
     <div id={id} className="flex items-center gap-3 mb-6 sm:mb-10 scroll-mt-20">
-      <div className="flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-blue-600/10 text-blue-600 dark:text-sky-400 shrink-0">
+      <div className="flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-yellow-500/10 text-yellow-500 shrink-0">
         {icon}
       </div>
-      <h2 className="text-lg sm:text-3xl font-bold">{title}</h2>
+      <h2 className="text-lg sm:text-3xl font-bold text-white">{title}</h2>
     </div>
   );
 }
@@ -302,25 +313,56 @@ function Experience() {
 
       <div className="space-y-5 sm:space-y-8">
         {EXPERIENCE.map((exp, i) => (
-          <div key={i} className="card-hover relative bg-card border border-card-border rounded-2xl p-4 sm:p-8">
-            <div className="flex flex-col gap-2 mb-3 sm:mb-4">
-              <div>
-                <h3 className="text-sm sm:text-lg font-bold text-foreground">{exp.role}</h3>
-                <p className="text-primary font-semibold text-sm">{exp.company}</p>
-                <p className="text-xs sm:text-sm text-muted">{exp.location}</p>
+          <div key={i} className="card-hover relative bg-card border border-card-border rounded-2xl overflow-hidden">
+            {/* Layout: foto kiri, deskripsi kanan */}
+            <div className="flex flex-col md:flex-row">
+              {/* Foto — kiri */}
+              {exp.image && (
+                <div className="w-full md:w-2/5 h-48 md:h-auto shrink-0">
+                  <Image
+                    src={exp.image}
+                    alt={exp.imageAlt}
+                    width={400}
+                    height={300}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              )}
+
+              {/* Deskripsi — kanan */}
+              <div className="flex-1 p-4 sm:p-6 md:p-8">
+                <div className="flex flex-col gap-2 mb-3 sm:mb-4">
+                  <div>
+                    <h3 className="text-sm sm:text-lg font-bold text-foreground">{exp.role}</h3>
+                    <p className="text-primary font-semibold text-sm">{exp.company}</p>
+                    <p className="text-xs sm:text-sm text-muted">{exp.location}</p>
+                  </div>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-500/10 text-yellow-500 border border-yellow-500/20">
+                      {exp.period}
+                    </span>
+                    {exp.suratUrl && (
+                      <a
+                        href={exp.suratUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500/20 transition-colors"
+                      >
+                        <IconExternal /> Surat Keterangan
+                      </a>
+                    )}
+                  </div>
+                </div>
+                <ul className="space-y-1.5 sm:space-y-2">
+                  {exp.details.map((d, j) => (
+                    <li key={j} className="flex items-start gap-2 text-xs sm:text-sm text-muted leading-relaxed">
+                      <span className="mt-1.5 sm:mt-2 w-1.5 h-1.5 rounded-full bg-yellow-500 shrink-0" />
+                      {d}
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <span className="self-start shrink-0 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-600/10 text-blue-600 dark:text-sky-400 dark:bg-sky-400/10">
-                {exp.period}
-              </span>
             </div>
-            <ul className="space-y-1.5 sm:space-y-2 ml-3 sm:ml-4">
-              {exp.details.map((d, j) => (
-                <li key={j} className="flex items-start gap-2 text-xs sm:text-base text-muted leading-relaxed">
-                  <span className="mt-1.5 sm:mt-2 w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0" />
-                  {d}
-                </li>
-              ))}
-            </ul>
           </div>
         ))}
       </div>
@@ -330,18 +372,18 @@ function Experience() {
 
 function Education() {
   return (
-    <section className="py-12 sm:py-24 px-4 sm:px-6 bg-slate-50 dark:bg-white/[0.02]">
+    <section className="py-12 sm:py-24 px-4 sm:px-6 bg-zinc-950">
       <div className="max-w-5xl mx-auto">
         <SectionTitle id="education" icon={<IconGradCap />} title="Pendidikan" />
 
         <div className="card-hover bg-card border border-card-border rounded-2xl p-4 sm:p-8">
           <div className="flex flex-col gap-2 mb-3 sm:mb-4">
             <div>
-              <h3 className="text-sm sm:text-lg font-bold">{EDUCATION.school}</h3>
+              <h3 className="text-sm sm:text-lg font-bold text-white">{EDUCATION.school}</h3>
               <p className="text-primary font-semibold text-sm">{EDUCATION.degree}</p>
             </div>
             <div className="flex flex-wrap items-center gap-2">
-              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-500/10 text-green-600 dark:text-green-400">
+              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-500/10 text-yellow-500 border border-yellow-500/20">
                 GPA: {EDUCATION.gpa}
               </span>
               <span className="text-xs text-muted">{EDUCATION.period}</span>
@@ -350,7 +392,7 @@ function Education() {
           <ul className="space-y-1.5 sm:space-y-2 ml-3 sm:ml-4">
             {EDUCATION.highlights.map((h, i) => (
               <li key={i} className="flex items-start gap-2 text-xs sm:text-base text-muted leading-relaxed">
-                <span className="mt-1.5 sm:mt-2 w-1.5 h-1.5 rounded-full bg-green-500 shrink-0" />
+                <span className="mt-1.5 sm:mt-2 w-1.5 h-1.5 rounded-full bg-yellow-500 shrink-0" />
                 {h}
               </li>
             ))}
@@ -368,20 +410,20 @@ function Skills() {
 
       <div className="grid md:grid-cols-2 gap-5 sm:gap-8">
         {/* Hard Skills */}
-        <div className="bg-card border border-card-border rounded-2xl p-4 sm:p-8">
-          <h3 className="text-sm sm:text-lg font-bold mb-4 sm:mb-6 flex items-center gap-2">
-            <span className="text-blue-500"><IconCode /></span> Hard Skills
+        <div className="card-hover bg-card border border-card-border rounded-2xl p-4 sm:p-8">
+          <h3 className="text-sm sm:text-lg font-bold mb-4 sm:mb-6 flex items-center gap-2 text-white">
+            <span className="text-yellow-500"><IconCode /></span> Hard Skills
           </h3>
           <div className="space-y-3 sm:space-y-4">
             {HARD_SKILLS.map((skill, i) => (
               <div key={i}>
                 <div className="flex justify-between text-xs sm:text-sm mb-1">
-                  <span className="font-medium">{skill.name}</span>
+                  <span className="font-medium text-zinc-300">{skill.name}</span>
                   <span className="text-muted">{skill.level}%</span>
                 </div>
-                <div className="w-full h-1.5 sm:h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                <div className="w-full h-1.5 sm:h-2 bg-zinc-800 rounded-full overflow-hidden">
                   <div
-                    className="skill-bar-fill h-full rounded-full bg-gradient-to-r from-blue-600 to-sky-400"
+                    className="skill-bar-fill h-full rounded-full bg-gradient-to-r from-yellow-500 to-amber-400"
                     style={{ width: `${skill.level}%`, animationDelay: `${i * 0.1}s` }}
                   />
                 </div>
@@ -392,28 +434,28 @@ function Skills() {
 
         {/* Soft Skills + Languages + Tools */}
         <div className="space-y-5 sm:space-y-8">
-          <div className="bg-card border border-card-border rounded-2xl p-4 sm:p-8">
-            <h3 className="text-sm sm:text-lg font-bold mb-4 sm:mb-6 flex items-center gap-2">
-              <span className="text-rose-500"><IconHeart /></span> Soft Skills
+          <div className="card-hover bg-card border border-card-border rounded-2xl p-4 sm:p-8">
+            <h3 className="text-sm sm:text-lg font-bold mb-4 sm:mb-6 flex items-center gap-2 text-white">
+              <span className="text-rose-400"><IconHeart /></span> Soft Skills
             </h3>
             <div className="flex flex-wrap gap-1.5 sm:gap-2">
               {SOFT_SKILLS.map((s, i) => (
-                <span key={i} className="px-2.5 sm:px-4 py-1 sm:py-2 rounded-full text-xs font-medium bg-slate-100 dark:bg-slate-800 text-foreground border border-card-border">
+                <span key={i} className="px-2.5 sm:px-4 py-1 sm:py-2 rounded-full text-xs font-medium bg-zinc-800 text-zinc-300 border border-zinc-700">
                   {s}
                 </span>
               ))}
             </div>
           </div>
 
-          <div className="bg-card border border-card-border rounded-2xl p-4 sm:p-8">
-            <h3 className="text-sm sm:text-lg font-bold mb-4 sm:mb-6 flex items-center gap-2">
-              <span className="text-emerald-500"><IconGlobe /></span> Bahasa
+          <div className="card-hover bg-card border border-card-border rounded-2xl p-4 sm:p-8">
+            <h3 className="text-sm sm:text-lg font-bold mb-4 sm:mb-6 flex items-center gap-2 text-white">
+              <span className="text-emerald-400"><IconGlobe /></span> Bahasa
             </h3>
             <div className="space-y-2 sm:space-y-3">
               {LANGUAGES.map((l, i) => (
                 <div key={i} className="flex items-center gap-3">
-                  <span className="font-medium text-xs sm:text-sm">{l.name}</span>
-                  <span className="text-xs px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-medium">
+                  <span className="font-medium text-xs sm:text-sm text-zinc-300">{l.name}</span>
+                  <span className="text-xs px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 font-medium">
                     {l.level}
                   </span>
                 </div>
@@ -421,13 +463,13 @@ function Skills() {
             </div>
           </div>
 
-          <div className="bg-card border border-card-border rounded-2xl p-4 sm:p-8">
-            <h3 className="text-sm sm:text-lg font-bold mb-4 sm:mb-6 flex items-center gap-2">
-              <span className="text-violet-500">🛠</span> Tools & Lingkungan Kerja
+          <div className="card-hover bg-card border border-card-border rounded-2xl p-4 sm:p-8">
+            <h3 className="text-sm sm:text-lg font-bold mb-4 sm:mb-6 flex items-center gap-2 text-white">
+              <span className="text-yellow-500">🛠</span> Tools & Lingkungan Kerja
             </h3>
             <div className="flex flex-wrap gap-1.5 sm:gap-2">
               {TOOLS.map((t, i) => (
-                <span key={i} className="px-2.5 sm:px-4 py-1 sm:py-2 rounded-full text-xs font-medium bg-violet-500/10 text-violet-600 dark:text-violet-400 border border-violet-500/20">
+                <span key={i} className="px-2.5 sm:px-4 py-1 sm:py-2 rounded-full text-xs font-medium bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">
                   {t}
                 </span>
               ))}
@@ -441,22 +483,50 @@ function Skills() {
 
 function Certificates() {
   return (
-    <section className="py-12 sm:py-24 px-4 sm:px-6 bg-slate-50 dark:bg-white/[0.02]">
+    <section className="py-12 sm:py-24 px-4 sm:px-6 bg-zinc-950">
       <div className="max-w-5xl mx-auto">
         <SectionTitle id="certificates" icon={<IconAward />} title="Sertifikat" />
 
+        {/* Row 1: 3 items */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
-          {CERTIFICATES.map((cert, i) => (
-            <div key={i} className="card-hover bg-card border border-card-border rounded-2xl p-4 sm:p-6 flex flex-col">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center mb-3">
+          {CERTIFICATES.slice(0, 3).map((cert, i) => (
+            <a
+              key={i}
+              href={cert.pdf}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="card-hover bg-card border border-card-border rounded-2xl p-4 sm:p-6 flex flex-col group cursor-pointer"
+            >
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-yellow-500/10 text-yellow-500 flex items-center justify-center mb-3 group-hover:bg-yellow-500/20 transition-colors">
                 <IconAward />
               </div>
-              <h4 className="font-bold text-xs sm:text-sm mb-1">{cert.name}</h4>
+              <h4 className="font-bold text-xs sm:text-sm mb-1 text-white group-hover:text-yellow-400 transition-colors">{cert.name}</h4>
               <p className="text-xs text-muted mb-2 sm:mb-3">{cert.issuer}</p>
-              <span className="mt-auto inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-500/10 text-amber-600 dark:text-amber-400 w-fit">
+              <span className="mt-auto inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-500/10 text-yellow-500 border border-yellow-500/20 w-fit">
                 {cert.date}
               </span>
-            </div>
+            </a>
+          ))}
+        </div>
+        {/* Row 2: 2 items, centered */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-3 sm:gap-6 mt-3 sm:mt-6 max-w-3xl mx-auto">
+          {CERTIFICATES.slice(3).map((cert, i) => (
+            <a
+              key={i + 3}
+              href={cert.pdf}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="card-hover bg-card border border-card-border rounded-2xl p-4 sm:p-6 flex flex-col group cursor-pointer"
+            >
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-yellow-500/10 text-yellow-500 flex items-center justify-center mb-3 group-hover:bg-yellow-500/20 transition-colors">
+                <IconAward />
+              </div>
+              <h4 className="font-bold text-xs sm:text-sm mb-1 text-white group-hover:text-yellow-400 transition-colors">{cert.name}</h4>
+              <p className="text-xs text-muted mb-2 sm:mb-3">{cert.issuer}</p>
+              <span className="mt-auto inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-500/10 text-yellow-500 border border-yellow-500/20 w-fit">
+                {cert.date}
+              </span>
+            </a>
           ))}
         </div>
       </div>
@@ -466,7 +536,7 @@ function Certificates() {
 
 function Footer() {
   return (
-    <footer className="py-5 sm:py-8 px-4 sm:px-6 border-t border-card-border">
+    <footer className="py-5 sm:py-8 px-4 sm:px-6 border-t border-card-border bg-black">
       <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-xs sm:text-sm text-muted">
         <p>&copy; {new Date().getFullYear()} Gerry Abel Al Ashby. All rights reserved.</p>
         <div className="flex items-center gap-4">
@@ -486,7 +556,7 @@ function Footer() {
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-black">
       <Navbar />
       <Hero />
       <Experience />

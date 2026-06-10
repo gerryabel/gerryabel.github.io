@@ -1,16 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8fafc;
-  --foreground: #0f172a;
-  --primary: #2563eb;
-  --primary-dark: #1d4ed8;
-  --accent: #0ea5e9;
-  --card: #ffffff;
-  --card-border: #e2e8f0;
-  --muted: #64748b;
-  --hero-gradient-from: #0f172a;
-  --hero-gradient-to: #1e3a5f;
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --primary: #eab308;
+  --primary-dark: #ca8a04;
+  --primary-glow: #facc15;
+  --accent: #fbbf24;
+  --card: #111111;
+  --card-border: #262626;
+  --muted: #a1a1aa;
+  --hero-gradient-from: #0a0a0a;
+  --hero-gradient-to: #1c1917;
 }
 
 @theme inline {
@@ -26,20 +27,9 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-    --card: #111111;
-    --card-border: #262626;
-    --muted: #a1a1aa;
-    --hero-gradient-from: #0a0a0a;
-    --hero-gradient-to: #172554;
-  }
-}
-
 * {
   scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -76,11 +66,6 @@ body {
   }
 }
 
-@keyframes pulse-dot {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
-}
-
 .animate-fade-in-up {
   animation: fade-in-up 0.7s ease-out both;
 }
@@ -101,28 +86,51 @@ body {
 .animation-delay-600 { animation-delay: 0.6s; }
 .animation-delay-700 { animation-delay: 0.7s; }
 
-/* Gradient text */
+/* Gradient text — kuning */
 .gradient-text {
-  background: linear-gradient(135deg, #2563eb, #0ea5e9, #8b5cf6);
+  background: linear-gradient(135deg, #eab308, #fbbf24, #f59e0b);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Skill bar animation */
-@keyframes grow-bar {
-  from { width: 0%; }
-}
-
+/* Skill bar — kuning */
 .skill-bar-fill {
   animation: grow-bar 1.2s ease-out both;
 }
 
-/* Card hover */
+@keyframes grow-bar {
+  from { width: 0%; }
+}
+
+/* Card hover glow kuning */
 .card-hover {
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 .card-hover:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 30px rgba(234, 179, 8, 0.15), 0 0 60px rgba(234, 179, 8, 0.05);
+  border-color: rgba(234, 179, 8, 0.3);
+}
+
+/* Avatar glow */
+.avatar-glow {
+  box-shadow: 0 0 20px rgba(234, 179, 8, 0.3), 0 0 40px rgba(234, 179, 8, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+.avatar-glow:hover {
+  box-shadow: 0 0 30px rgba(234, 179, 8, 0.5), 0 0 60px rgba(234, 179, 8, 0.2);
+}
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
